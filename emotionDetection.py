@@ -59,10 +59,9 @@ while True:
     		pred = model.predict(face) * 100
     		labels = np.argmax(pred)
     		print(labelToText[labels])
+			cv2.rectangle(frames, (x,y), (x+w,y+h), (0,0,255), 2)
     		if labelToText[labels] == "Angry":
 	   			angry += 1
-			
-			
 			elif labelToText[labels] == "Sad":
 				sad += 1
 			elif labelToText[labels] == "Happy":

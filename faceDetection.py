@@ -58,7 +58,7 @@ while True:
                 happy += 1
             elif labelToText[labels] == "Surprice":
                 surprice += 1
-            if i%8 == 0:
+            if i%4 == 0:
                 flag = np.array([angry, happy, sad, surprice])
                 x = np.argmax(flag)
                 #print(labelToText[x])
@@ -67,6 +67,7 @@ while True:
                 happy = 0
                 sad = 0
                 surprice = 0
+            cv2.rectangle(frame, (x,y), (x+w,y+h), (0,0,255), 2)
         cv2.imshow("video",frame)
         if cv2.waitKey(20) & 0xFF == ord('q'):
             break
